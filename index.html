@@ -583,11 +583,13 @@
             overflow: hidden;
             position: relative;
             background: var(--surface-3);
-            height: 260px;
         }
         .g-item img {
-            width: 100%; height: 100%;
-            object-fit: contain;
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
             transition: transform 0.7s var(--ease), filter 0.4s var(--ease);
             filter: saturate(0.65) brightness(0.8);
         }
@@ -934,7 +936,6 @@
 
             /* Gallery */
             .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 180px; }
-            .g-item { height: 180px; }
 
             /* Contact */
             .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
