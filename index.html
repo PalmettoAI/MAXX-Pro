@@ -859,9 +859,17 @@
 
         @media (max-width: 768px) {
             /* Nav */
+            #nav {
+                padding: 0.65rem 1.25rem;
+            }
+            .nav-logo {
+                height: 46px;
+                flex-shrink: 0;
+                min-width: 0;
+            }
             .nav-links {
                 position: fixed;
-                top: 76px; left: 0; right: 0;
+                top: 70px; left: 0; right: 0;
                 background: rgba(8,8,8,0.98);
                 flex-direction: column;
                 align-items: flex-start;
@@ -870,8 +878,13 @@
                 border-bottom: 1px solid rgba(204,0,0,0.2);
                 transform: translateY(-110%);
                 transition: transform 0.35s var(--ease);
+                overflow: hidden;
+                visibility: hidden;
             }
-            .nav-links.open { transform: translateY(0); }
+            .nav-links.open {
+                transform: translateY(0);
+                visibility: visible;
+            }
             .hamburger { display: flex; }
 
             /* Hero */
