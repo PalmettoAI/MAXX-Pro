@@ -77,14 +77,14 @@
         }
     </style>
     <style>
-        .gallery-full { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; }
-        .g-item { width: 306px; height: 230px; overflow: hidden; background: var(--surface-3); position: relative; flex-shrink: 0; }
+        .gallery-full { display: grid; grid-template-columns: repeat(3, 306px); gap: 4px; justify-content: center; }
+        .g-item { width: 306px; height: 230px; overflow: hidden; background: var(--surface-3); position: relative; }
         .g-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; filter: saturate(0.65) brightness(0.8); transition: transform 0.7s var(--ease), filter 0.4s var(--ease); }
         .g-item:hover img { transform: scale(1.06); filter: saturate(1) brightness(0.95); }
         .g-item::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,8,0.4) 0%, transparent 50%); pointer-events: none; }
         .g-label { position: absolute; bottom: 1rem; left: 1rem; font-family: var(--font-display); font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--chrome-hi); z-index: 1; }
-        @media (max-width: 768px) { .g-item { width: calc(50% - 2px); height: 230px; } }
-        @media (max-width: 480px) { .g-item { width: 100%; height: 230px; } }
+        @media (max-width: 768px) { .gallery-full { grid-template-columns: repeat(2, 1fr); } .g-item { width: 100%; height: 230px; } }
+        @media (max-width: 480px) { .gallery-full { grid-template-columns: 1fr; } .g-item { width: 100%; height: 230px; } }
     </style>
 </head>
 <body>
@@ -123,24 +123,6 @@
         <div class="g-item"><img src="assets/fb/home-repairs/2023-11-15_3.jpg" alt="Custom barn door installation by MAXXPRO" loading="lazy"></div>
         <div class="g-item"><img src="assets/fb/gallery/2026-02-24_1.jpg" alt="Freshly painted bathroom renovation by MAXXPRO" loading="lazy"></div>
         <div class="g-item"><img src="assets/fb/gallery/2026-02-24_3.jpg" alt="Bathroom vanity and tile renovation by MAXXPRO" loading="lazy"></div>
-    </div>
-        <div class="g-item"><img src="assets/gallery-pergola.jpg" alt="Custom pergola and patio build" loading="lazy"></div>
-        <div class="g-item"><img src="assets/gallery-office.jpg" alt="Home office black shiplap remodel" loading="lazy"></div>
-        <div class="g-item"><img src="assets/gallery-deck.jpg" alt="Pool deck build" loading="lazy"></div>
-        <div class="g-item"><img src="assets/gallery-fence.jpg" alt="Wood fence installation" loading="lazy"></div>
-        <div class="g-item"><img src="assets/fb/gallery/2026-02-24_1.jpg" alt="Initially, the customer planned to handle the finish work but eventually sought " loading="lazy"></div>
-        <div class="g-item"><img src="assets/fb/gallery/2026-02-24_2.jpg" alt="Initially, the customer planned to handle the finish work but eventually sought " loading="lazy"></div>
-        <div class="g-item"><img src="assets/fb/gallery/2026-02-24_3.jpg" alt="Initially, the customer planned to handle the finish work but eventually sought " loading="lazy"></div>
-        <div class="g-item"><img src="assets/fb/gallery/2026-02-24_4.jpg" alt="Initially, the customer planned to handle the finish work but eventually sought " loading="lazy"></div>
-        <div class="g-item"><img src="assets/fb/gallery/2026-02-24_5.jpg" alt="Initially, the customer planned to handle the finish work but eventually sought " loading="lazy"></div>
-        <div class="g-item"><img src="assets/fb/gallery/2026-02-24_6.jpg" alt="Initially, the customer planned to handle the finish work but eventually sought " loading="lazy"></div>
-        <div class="g-item"><img src="assets/fb/gallery/2025-10-11_7.jpg" alt="Watch this house get a stunning paint makeover, transforming it into a fresh, mo" loading="lazy"></div>
-        <div class="g-item"><img src="assets/fb/gallery/2025-08-29_8.jpg" alt="High ceilings, low ceilings, no problem! 🛠️ We've got it covered! 💪" loading="lazy"></div>
-    </div>
-        <div class="g-item"><img src="assets/gallery-pergola.jpg" alt="Custom pergola and patio build" loading="lazy"><span class="g-label">Outdoor Build</span></div>
-        <div class="g-item"><img src="assets/gallery-office.jpg" alt="Home office black shiplap remodel" loading="lazy"><span class="g-label">Interior Remodel</span></div>
-        <div class="g-item"><img src="assets/gallery-deck.jpg" alt="Wood deck around pool" loading="lazy"><span class="g-label">Deck Build</span></div>
-        <div class="g-item"><img src="assets/gallery-fence.jpg" alt="New wood fence installation" loading="lazy"><span class="g-label">Fence Install</span></div>
     </div>
     <p style="color:var(--muted);font-size:0.85rem;margin-top:2rem;text-align:center;font-style:italic;">More photos on our <a href="https://www.facebook.com/profile.php?id=61553059006835&mibextid=wwXIfr&rdid=zbjiAID95G06AH3U&share" target="_blank" style="color:var(--red-bright);">Facebook</a> &amp; <a href="https://www.tiktok.com/@maxxpro93" target="_blank" style="color:var(--red-bright);">TikTok</a></p>
 </div>
