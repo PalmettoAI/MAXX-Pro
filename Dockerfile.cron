@@ -4,3 +4,4 @@ RUN pip install anthropic
 WORKDIR /app
 COPY weekly_generator.py .
 COPY publish_post.py .
+CMD ["python3", "/app/weekly_generator.py"]
