@@ -391,6 +391,16 @@ def run(niche, n_posts=3):
             json.dump(log_entries, f, indent=2)
         print(f"  publish_log.json: {len(log_entries)} total entries")
 
+        # Always write last_run.json so we can confirm execution from GitHub
+        last_run = {
+            "run_at": str(date.today()),
+            "posts_generated": len(new_cards),
+            "status": "success",
+            "errors": [],
+        }
+        with open(os.path.join(tmpdir, "last_run.json"), "w") as f:
+            json.dump(last_run, f, indent=2)
+
         pushed = git_push(
             tmpdir,
             f"blog: add {len(new_cards)} post(s) [{date.today()}]"
@@ -409,4 +419,25 @@ if __name__ == "__main__":
     parser.add_argument("--n", type=int, default=3,
                         help="Number of posts to generate")
     args = parser.parse_args()
-    run(args.niche, args.n)
+    try:
+        run(args.niche, args.n)
+    except Exception as exc:
+        import traceback
+        print(f"FATAL: {exc}")
+        traceback.print_exc()
+        # Try to push an error log so we can see it on GitHub
+        try:
+            import tempfile as _tf, subprocess as _sp
+            _td = _tf.mkdtemp(prefix="maxxpro_err_")
+            _url = f"https://x-access-token:{GITHUB_TOKEN}@github.com/{GITHUB_REPO}.git"
+            _sp.run(["git", "clone", "--depth=1", _url, _td], check=True,
+                    capture_output=True)
+            with open(os.path.join(_td, "last_run.json"), "w") as _f:
+                json.dump({"run_at": str(date.today()), "status": "error",
+                           "error": str(exc),
+                           "traceback": traceback.format_exc()}, _f, indent=2)
+            git_push(_td, f"blog: error log [{date.today()}]")
+        except Exception:
+            pass
+        raise
+
