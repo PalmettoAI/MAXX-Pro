@@ -116,7 +116,7 @@ def generate_post_html(slug, title, tag, excerpt, body_html, post_date):
     <a href="../index.html#contact" class="btn btn-white">Get Free Estimate</a>
 </div>
 <footer>
-    <p>&copy; 2025 MAXXPRO Painting and Home Repairs LLC. All rights reserved. | Built by <a href="https://github.com/PalmettoAI" target="_blank" rel="noopener noreferrer">PalmettoAI</a></p>
+    <p>&copy; 2025 MAXXPRO Painting and Home Repairs LLC. All rights reserved. | Built by <a href="https://palmettoaiautomation.com" target="_blank" rel="noopener noreferrer">PalmettoAI Automation</a></p>
 </footer>
 <script>
     function toggleNav() {{
