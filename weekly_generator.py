@@ -285,7 +285,7 @@ def build_post_html(meta, body_html, post_date):
 </div>
 
 <footer>
-    <p>&copy; 2025 MAXXPRO Painting and Home Repairs LLC. All rights reserved. | Built by <a href="https://github.com/PalmettoAI" target="_blank" rel="noopener noreferrer">PalmettoAI</a></p>
+    <p>&copy; 2025 MAXXPRO Painting and Home Repairs LLC. All rights reserved. | Built by <a href="https://palmettoaiautomation.com" target="_blank" rel="noopener noreferrer">PalmettoAI Automation</a></p>
 </footer>
 <script>
     function toggleNav() {{
