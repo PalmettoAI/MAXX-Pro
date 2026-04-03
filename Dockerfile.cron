@@ -4,4 +4,6 @@ RUN pip install anthropic
 WORKDIR /app
 COPY weekly_generator.py .
 COPY publish_post.py .
-CMD ["python3", "/app/weekly_generator.py"]
+COPY entrypoint.cron.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD ["/entrypoint.sh"]
