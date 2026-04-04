@@ -1529,7 +1529,19 @@
     });
 </script>
 
-$BANNER
 
+<div id="form-success-banner" style="display:none;position:fixed;top:0;left:0;width:100%;z-index:99999;background:#22c55e;color:#fff;text-align:center;padding:16px;font-family:Arial,sans-serif;font-size:16px;font-weight:600;box-shadow:0 2px 8px rgba(0,0,0,0.2);">
+  &#10003; Form Submitted — We will be in touch soon!
+</div>
+<script>
+  (function(){
+    if(window.location.search.includes("submitted=true")){
+      var b=document.getElementById("form-success-banner");
+      b.style.display="block";
+      setTimeout(function(){ b.style.display="none"; },5000);
+      history.replaceState(null,"",window.location.pathname);
+    }
+  })();
+</script>
 </body>
 </html>
